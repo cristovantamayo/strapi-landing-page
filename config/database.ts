@@ -1,6 +1,6 @@
-const path = require("path");
+import path from "path";
 
-module.exports = ({ env }) => {
+export default ({ env }) => {
   const client = env("DATABASE_CLIENT", "sqlite");
 
   const connections = {
@@ -44,7 +44,7 @@ module.exports = ({ env }) => {
           cipher: env("DATABASE_SSL_CIPHER", undefined),
           rejectUnauthorized: env.bool(
             "DATABASE_SSL_REJECT_UNAUTHORIZED",
-            false
+            true
           ),
         },
         schema: env("DATABASE_SCHEMA", "public"),
@@ -58,6 +58,7 @@ module.exports = ({ env }) => {
       connection: {
         filename: path.join(
           __dirname,
+          "..",
           "..",
           env("DATABASE_FILENAME", ".tmp/data.db")
         ),
