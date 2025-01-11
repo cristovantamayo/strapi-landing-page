@@ -25,6 +25,27 @@ export interface SectionSectionMetadata extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionSectionTwoColumns extends Struct.ComponentSchema {
+  collectionName: 'components_section_section_two_columns';
+  info: {
+    displayName: 'section_two_columns';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images' | 'files'> &
+      Schema.Attribute.Required;
+    metadata: Schema.Attribute.Component<'section.section-metadata', true> &
+      Schema.Attribute.Required;
+    titile: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -91,6 +112,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'section.section-metadata': SectionSectionMetadata;
+      'section.section-two-columns': SectionSectionTwoColumns;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
