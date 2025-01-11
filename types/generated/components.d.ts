@@ -1,5 +1,38 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SectionImageGrid extends Struct.ComponentSchema {
+  collectionName: 'components_section_image_grids';
+  info: {
+    displayName: 'Image-grid';
+    icon: 'crop';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files', true> &
+      Schema.Attribute.Required;
+  };
+}
+
+export interface SectionSectionGrid extends Struct.ComponentSchema {
+  collectionName: 'components_section_section_grids';
+  info: {
+    displayName: 'section_grid';
+    icon: 'apps';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    image_grid: Schema.Attribute.Component<'section.image-grid', true>;
+    metadata: Schema.Attribute.Component<'section.section-metadata', false> &
+      Schema.Attribute.Required;
+    text_grid: Schema.Attribute.Component<'section.text-grid', true>;
+    title: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+        minLength: 3;
+      }>;
+  };
+}
+
 export interface SectionSectionMetadata extends Struct.ComponentSchema {
   collectionName: 'components_section_section_metadata';
   info: {
@@ -37,6 +70,23 @@ export interface SectionSectionTwoColumns extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     metadata: Schema.Attribute.Component<'section.section-metadata', true> &
       Schema.Attribute.Required;
+    titile: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 255;
+        minLength: 3;
+      }>;
+  };
+}
+
+export interface SectionTextGrid extends Struct.ComponentSchema {
+  collectionName: 'components_section_text_grids';
+  info: {
+    displayName: 'text-grid';
+    icon: 'apps';
+  };
+  attributes: {
+    dscription: Schema.Attribute.Text & Schema.Attribute.Required;
     titile: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
@@ -111,8 +161,11 @@ export interface SharedSlider extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'section.image-grid': SectionImageGrid;
+      'section.section-grid': SectionSectionGrid;
       'section.section-metadata': SectionSectionMetadata;
       'section.section-two-columns': SectionSectionTwoColumns;
+      'section.text-grid': SectionTextGrid;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;
