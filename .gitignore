@@ -60,6 +60,11 @@ $RECYCLE.BIN/
 *.out
 *.pid
 
+############################
+# Agents & IDEs
+############################
+.vscode
+.vscode/*
 
 ############################
 # Logs and databases
