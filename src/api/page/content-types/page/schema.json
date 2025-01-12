@@ -32,6 +32,16 @@
         "section.section-one-content"
       ],
       "required": true
+    },
+    "footer_text": {
+      "type": "blocks",
+      "required": true
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": false,
+      "component": "menu.menu",
+      "required": true
     }
   }
 }
