@@ -2,18 +2,26 @@
   "collectionName": "components_section_image_grids",
   "info": {
     "displayName": "Image-grid",
-    "icon": "crop"
+    "icon": "crop",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": true,
+      ]
+    },
+    "url": {
+      "type": "text",
       "required": true
+    },
+    "alternativeText": {
+      "type": "string"
     }
   }
 }
