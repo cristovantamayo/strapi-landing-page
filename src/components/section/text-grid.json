@@ -2,17 +2,18 @@
   "collectionName": "components_section_text_grids",
   "info": {
     "displayName": "text-grid",
-    "icon": "apps"
+    "icon": "apps",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "titile": {
+    "title": {
       "type": "string",
       "required": true,
       "maxLength": 255,
       "minLength": 3
     },
-    "dscription": {
+    "description": {
       "type": "text",
       "required": true
     }

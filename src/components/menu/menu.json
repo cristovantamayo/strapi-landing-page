@@ -11,6 +11,12 @@
       "type": "text",
       "required": true
     },
+    "menu_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.menu-link",
+      "required": true
+    },
     "logo_text": {
       "type": "string",
       "required": true,
@@ -21,16 +27,7 @@
       "type": "media",
       "multiple": false,
       "required": false,
-      "allowedTypes": [
-        "images",
-        "files"
-      ]
-    },
-    "menu_links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "menu.menu-link",
-      "required": true
+      "allowedTypes": ["images", "files"]
     }
   }
 }

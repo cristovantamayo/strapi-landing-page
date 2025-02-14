@@ -39,12 +39,15 @@ export interface MenuMenuLink extends Struct.ComponentSchema {
 export interface SectionImageGrid extends Struct.ComponentSchema {
   collectionName: 'components_section_image_grids';
   info: {
+    description: '';
     displayName: 'Image-grid';
     icon: 'crop';
   };
   attributes: {
+    alternativeText: Schema.Attribute.String;
     image: Schema.Attribute.Media<'images' | 'files', true> &
       Schema.Attribute.Required;
+    url: Schema.Attribute.Text & Schema.Attribute.Required;
   };
 }
 
@@ -116,6 +119,7 @@ export interface SectionSectionOneContent extends Struct.ComponentSchema {
 export interface SectionSectionTwoColumns extends Struct.ComponentSchema {
   collectionName: 'components_section_section_two_columns';
   info: {
+    description: '';
     displayName: 'section_two_columns';
     icon: 'apps';
   };
@@ -125,7 +129,7 @@ export interface SectionSectionTwoColumns extends Struct.ComponentSchema {
       Schema.Attribute.Required;
     metadata: Schema.Attribute.Component<'section.section-metadata', true> &
       Schema.Attribute.Required;
-    titile: Schema.Attribute.String &
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;
@@ -137,12 +141,13 @@ export interface SectionSectionTwoColumns extends Struct.ComponentSchema {
 export interface SectionTextGrid extends Struct.ComponentSchema {
   collectionName: 'components_section_text_grids';
   info: {
+    description: '';
     displayName: 'text-grid';
     icon: 'apps';
   };
   attributes: {
-    dscription: Schema.Attribute.Text & Schema.Attribute.Required;
-    titile: Schema.Attribute.String &
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    title: Schema.Attribute.String &
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMaxLength<{
         maxLength: 255;
