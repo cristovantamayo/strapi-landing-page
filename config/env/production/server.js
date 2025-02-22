@@ -6,6 +6,12 @@ module.exports = ({ env }) => ({
   app: {
     keys: env.array("APP_KEYS"),
   },
+  proxy: true,
+  admin: {
+    auth: {
+      secret: env("ADMIN_JWT_SECRET"),
+    },
+  },
   webhooks: {
     populateRelations: env.bool("WEBHOOKS_POPULATE_RELATIONS", true),
   },
